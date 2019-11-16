@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock %}
+{% block body %}
+
+{% for post in posts %}
+
+<div class="card" style="padding-top: 1%;">
+    <div class="card-header">
+        <a href="{% url 'view-post' post.id %}" style="color: green;">
+            {{ post.title }} using {{ post.argtype }} 
+        </a><h6 style="color: blue;">Agreed : {{post.getagrees}} &emsp; Disagreed : {{post.getdisagrees}}</h6> 
+    </div>
+    <div class="card-body">
+        {% if post.linkcheck %}
+            <h5>Debates : </h5>
+            {% for i in post.link.all %}
+                <a href="{% url 'view-post' i.id %}" style="color: yellowgreen;">
+                    {{ i.title }} using {{ i.argtype }}
+                </a><br>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

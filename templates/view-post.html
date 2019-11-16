@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% block title %} {{post.title}} {% endblock %}
+{% block head %}
+
+<script>
+    function changed(){
+        var a = document.getElementById('selected');
+        var num = a.options[a.selectedIndex].value;
+        document.getElementById('counter-post').href = '/counter-post/{{post.id}}/'+num;
+    }
+</script>
+
+{% endblock %}
+{% block body %}
+
+<div class="card" style="padding-top: 1%;">
+    <div class="card-header">{{ post.title }} using {{ post.argtype }}</div>
+    <div class="card-body">
+        {% if post.a1 %}
+            <h6 style="color: green;">{{post.a1}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a1' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al1}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a1' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad1}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.a2 %}
+            <h6 style="color: green;">{{post.a2}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a2' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al2}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a2' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad2}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.a3 %}
+            <h6 style="color: green;">{{post.a3}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a3' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al3}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a3' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad3}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.a4 %}
+            <h6 style="color: green;">{{post.a4}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a4' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al4}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a4' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad4}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.a5 %}
+            <h6 style="color: green;">{{post.a5}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a5' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al5}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a5' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad5}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.a6 %}
+            <h6 style="color: green;">{{post.a6}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a6' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al6}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a6' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad6}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.a7 %}
+            <h6 style="color: green;">{{post.a7}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'a7' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.al7}}</span></a>/
+            <a href="{% url 'disagree' post.id 'a7' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.ad7}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b1 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b1}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b1' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl1}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b1' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd1}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b2 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b2}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b2' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl2}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b2' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd2}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b3 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b3}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b3' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl3}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b3' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd3}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b4 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b4}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b4' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl4}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b4' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd4}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b5 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b5}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b5' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl5}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b5' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd5}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b6 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b6}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b6' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl6}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b6' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd6}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.b7 %}
+            <h6 style="color: {% if post.argtypenum == 6 %} red {% else %} green {% endif %};">{{post.b7}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'b7' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.bl7}}</span></a>/
+            <a href="{% url 'disagree' post.id 'b7' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.bd7}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c1 %}
+            <h6 style="color: red;">{{post.c1}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c1' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl1}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c1' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd1}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c2 %}
+            <h6 style="color: red;">{{post.c2}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c2' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl2}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c2' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd2}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c3 %}
+            <h6 style="color: red;">{{post.c3}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c3' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl3}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c3' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd3}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c4 %}
+            <h6 style="color: red;">{{post.c4}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c4' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl4}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c4' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd4}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c5 %}
+            <h6 style="color: red;">{{post.c5}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c5' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl5}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c5' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd5}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c6 %}
+            <h6 style="color: red;">{{post.c6}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c6' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl6}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c6' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd6}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.c7 %}
+            <h6 style="color: red;">{{post.c7}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'c7' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.cl7}}</span></a>/
+            <a href="{% url 'disagree' post.id 'c7' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.cd7}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d1 %}
+            <h6 style="color: red;">{{post.d1}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd1' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl1}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd1' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd1}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d2 %}
+            <h6 style="color: red;">{{post.d2}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd2' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl2}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd2' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd2}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d3 %}
+            <h6 style="color: red;">{{post.d3}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd3' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl3}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd3' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd3}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d4 %}
+            <h6 style="color: red;">{{post.d4}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd4' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl4}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd4' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd4}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d5 %}
+            <h6 style="color: red;">{{post.d5}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd5' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl5}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd5' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd5}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d6 %}
+            <h6 style="color: red;">{{post.d6}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd6' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl6}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd6' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd6}}</span></a>)</h6>
+            <br>
+        {% endif %}
+        {% if post.d7 %}
+            <h6 style="color: red;">{{post.d7}}&emsp;&emsp;
+            (<a href="{% url 'agree' post.id 'd7' %}">Agree&nbsp;<span class="fa fa-arrow-up">{{post.dl7}}</span></a>/
+            <a href="{% url 'disagree' post.id 'd7' %}">Disagree&nbsp;<span class="fa fa-arrow-down">{{post.dd7}}</span></a>)</h6>
+            <br>
+        {% endif %}
+    </div>
+    <div class="card-footer">
+        <a type="submit" id="counter-post" href="{% url 'counter-post' post.id 1 %}" style="color: green;">New Counter Post using :&nbsp; </a>
+        <select id="selected" onchange="changed()" >
+            <option value="1">Argument from Analogy</option>
+            <option value="2">Argument from Correlation to Cause</option>
+            <option value="3">Argument from Positive/Negative Consequences</option>
+            <option value="4">Argument from the Position to Know</option>
+            <option value="5">Appeal to Expert Opinion</option>
+            <option value="6">Appeal to Popular Opinion</option>
+            <option value="7">Action Scheme</option>
+        </select>
+    </div>
+</div>
+
+{% if post.linkcheck %}
+    <div class="card" style="padding-top: 0.5%;">
+        <div class="card-header">Counter Arguments</div>
+        <div class="card-body">    
+            {% for i in post.link.all %}
+                <div class="card" style="padding-top: 0.5%;">
+                    <div class="card-header">{{ i.title }} using {{ i.argtype }}</div>
+                    <div class="card-body">
+                        {% if i.a1 %}
+                            <h6 style="color: green;">{{i.a1}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a1' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a1' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.a2 %}
+                            <h6 style="color: green;">{{i.a2}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a2' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a2' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.a3 %}
+                            <h6 style="color: green;">{{i.a3}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a3' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a3' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.a4 %}
+                            <h6 style="color: green;">{{i.a4}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a4' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a4' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.a5 %}
+                            <h6 style="color: green;">{{i.a5}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a5' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a5' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.a6 %}
+                            <h6 style="color: green;">{{i.a6}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a6' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a6' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.a7 %}
+                            <h6 style="color: green;">{{i.a7}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'a7' %}">Agree</a>/<a href="{% url 'disagree' i.id 'a7' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b1 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b1}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b1' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b1' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b2 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b2}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b2' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b2' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b3 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b3}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b3' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b3' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b4 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b4}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b4' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b4' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b5 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b5}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b5' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b5' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b6 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b6}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b6' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b6' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.b7 %}
+                            <h6 style="color: {% if i.argtypenum == 6 %} red {% else %} green {% endif %};">{{i.b7}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'b7' %}">Agree</a>/<a href="{% url 'disagree' i.id 'b7' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c1 %}
+                            <h6 style="color: red;">{{i.c1}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c1' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c1' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c2 %}
+                            <h6 style="color: red;">{{i.c2}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c2' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c2' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c3 %}
+                            <h6 style="color: red;">{{i.c3}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c3' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c3' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c4 %}
+                            <h6 style="color: red;">{{i.c4}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c4' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c4' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c5 %}
+                            <h6 style="color: red;">{{i.c5}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c5' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c5' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c6 %}
+                            <h6 style="color: red;">{{i.c6}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c6' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c6' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.c7 %}
+                            <h6 style="color: red;">{{i.c7}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'c7' %}">Agree</a>/<a href="{% url 'disagree' i.id 'c7' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d1 %}
+                            <h6 style="color: red;">{{i.d1}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd1' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd1' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d2 %}
+                            <h6 style="color: red;">{{i.d2}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd2' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd2' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d3 %}
+                            <h6 style="color: red;">{{i.d3}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd3' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd3' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d4 %}
+                            <h6 style="color: red;">{{i.d4}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd4' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd4' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d5 %}
+                            <h6 style="color: red;">{{i.d5}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd5' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd5' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d6 %}
+                            <h6 style="color: red;">{{i.d6}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd6' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd6' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                        {% if i.d7 %}
+                            <h6 style="color: red;">{{i.d7}}&emsp;&emsp;
+                            (<a href="{% url 'agree' i.id 'd7' %}">Agree</a>/<a href="{% url 'disagree' i.id 'd7' %}">Disagree</a>)</h6>
+                            <br>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}

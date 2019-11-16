@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block head %}
+
+<script>
+    function addinput(a){
+        var id = a + '1';
+        var number = document.getElementById(id).value;
+        if (number == '1111111'){
+            document.getElementById(a+a).hide()
+        }
+        document.getElementById(id).value = number + 1;
+        var containdiv = document.getElementById(a);
+        var input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Next point';
+        input.name = a + number;
+        input.style = 'width : 20%;';
+        containdiv.appendChild(document.createTextNode('Next - '))
+        containdiv.appendChild(input);
+        containdiv.appendChild(document.createElement('br'));
+        containdiv.appendChild(document.createElement('br'));
+    }
+</script>
+
+{% endblock %}
+{% block body %}
+
+<div class="text-center" style="padding-top: 4%;">
+    <form method="POST">
+        {% csrf_token %}
+
+        Title - <input type="text" placeholder="Enter a title for your debate" name="title" style="width: 20%;" required><br><br>
+
+        <input type="hidden" id="sitcon1" value="1">
+        {% if sel == '1' %}2 Cases which are identical - {% endif %} {% if sel == '2' %}2 Things which are corelated - {% endif %}
+        {% if sel == '3' %}Doing action - {% endif %} {% if sel == '4' %}Entity which is in position to know - {% endif %}
+        {% if sel == '5' %}Expert source - {% endif %} {% if sel == '6' %}Fact which is generally accepted - {% endif %}
+        {% if sel == '7' %}Situation - {% endif %}
+        <input type="text" placeholder="Enter here" name="situation" style="width: 20%;">
+        <button type="button" onclick="addinput('sitcon')"><span class="fa fa-plus" id="sitconsitcon"></span></button>
+        <br><br>
+        <div id="sitcon"></div>
+
+        <input type="hidden" id="actcon1" value="1">
+        {% if sel == '1' %}Properties of relationship - {% endif %} {% if sel == '2' %}How they are corelated - {% endif %}
+        {% if sel == '3' %}Leads to - {% endif %} {% if sel == '4' %}Entity says the following - {% endif %}
+        {% if sel == '5' %}Expertise - {% endif %} {% if sel == '6' %}Conclusion - {% endif %}
+        {% if sel == '7' %}Doing Action - {% endif %}
+        <input type="text" placeholder="Enter here" name="action" style="width: 20%;">
+        <button type="button" onclick="addinput('actcon')"><span class="fa fa-plus" id="actconactcon"></span></button>
+        <br><br>
+        <div id="actcon"></div>
+
+        <input type="hidden" id="goalcon1" value="1">
+        {% if sel == '1' %}Conclusion - {% endif %} {% if sel == '2' %}Conclusion - {% endif %}
+        {% if sel == '3' %}Conclusion - {% endif %} {% if sel == '4' %}Conclusion - {% endif %}
+        {% if sel == '5' %}What expert asserts - {% endif %} {% if sel == '7' %}Achieve goal/consequences - {% endif %}
+        <input type="text" placeholder="Enter here" name="goal" style="width: 20%;{% if sel == '6' %}display: none;{% endif %}">
+        <button type="button" onclick="addinput('goalcon')" style="{% if sel == '6' %}display: none;{% endif %}"><span class="fa fa-plus" id="goalcongoalcon"></span></button>
+        <br style="{% if sel == '6' %}display: none;{% endif %}"><br style="{% if sel == '6' %}display: none;{% endif %}">
+        <div id="goalcon"></div>
+
+        <input type="hidden" id="procon1" value="1">
+        {% if sel == '7' %}
+        Promote value - <input type="text" placeholder="Enter here" name="provalue" style="width: 20%;">
+        <button type="button" onclick="addinput('procon')" style="{% if sel == '6' %}display: none;{% endif %}"><span class="fa fa-plus" id="proconprocon"></span></button>
+        <br><br>
+        {% endif %}
+        <div id="procon"></div>
+
+        <input type="submit" value="Post!" style="color: green;">
+    </form>
+</div>
+
+{% endblock %}
